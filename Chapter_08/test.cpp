@@ -1,118 +1,72 @@
-// // Inheritance
-// // PArent class
-// // Child classes
+// import std;
+// using namespace std;
 
-import std;
-using namespace std;
-
-// // Geometric Object
-// class GeometricObject
+// // Base class
+// class Vehicle
 // {
-// private:
-//     string color = "green";
-//     bool filled = true;
-
 // public:
-//     GeometricObject(
-//         string color,
-//         bool filled)
-//         : color(color), filled(filled)
+//     string brand = "Ford";
+    
+//     void sound()
 //     {
-//     }
-
-//     string getColor() const
-//     {
-//         return color;
-//     }
-
-//     void setColor(const string& color)
-//     {
-//         this->color = color;
-
-//     }
-
-//     bool isFilled() const
-//     {
-//         return filled;
-//     }
-
-//     void setFilled(bool filled)
-//     {
-//         this->filled = filled;
-//     }
-
-//     string toString() const
-//     {
-//         return "color: " + color +
-//                " and filled: " +
-//                (filled ? "true" : "false");
+//         cout << "Tuut, tuut! \n";
 //     }
 // };
 
-// class Circle : public GeometricObject
+// // Derived class
+// class Car : public Vehicle
 // {
-// private:
-//     double radius;
-
 // public:
-//     Circle(double radius)
-//         : GeometricObject(), radius(radius)
-//     {
-//     }
-
-//     double getRadius() const
-//     {
-//         return radius;
-//     }
-
-//     void setRadius(double radius)
-//     {
-//         radius = radius;
-//     }
-
-//     double getArea() const
-//     {
-//         return radius * radius * numbers::pi;
-//     }
-
-//     double getDiameter() const
-//     {
-//         return 2 * radius;
-//     }
-
-//     double getPerimeter() const
-//     {
-//         return 2 * radius * numbers::pi;
-//     }
-
-//     void printCircle() const
-//     {
-//         cout << toString()
-//              << " radius: " << radius
-//              << '\n';
-//     }
+//     string model = "Mustang";
 // };
 
 // int main()
 // {
-//     Circle circle(5.0); // Create a circle with radius 5.0
-
-//     circle.printCircle(); // Access member function
-
-//     // std::cout << "Area: "
-//     //           << circle.getArea() << '\n';
-
-//     // std::cout << "Diameter: "
-//     //           << circle.getDiameter() << '\n';
-
-//     // std::cout << "Perimeter: "
-//     //           << circle.getPerimeter() << '\n';
-
+//     Car myCar;
+//     myCar.sound();
+//     cout << myCar.brand + " " + myCar.model;
 //     return 0;
 // }
 
+
+import std;
+using namespace std;
+
+// Base class
+class Vehicle
+{
+public:
+    string brand;
+
+    Vehicle(string brand)
+        : brand(brand)
+    {
+    }
+
+    void sound()
+    {
+        print("Tuut, tuut!\n");
+    }
+};
+
+// Derived class
+class Car : public Vehicle
+{
+public:
+    string model;
+
+    Car(string brand, string model)
+        : Vehicle(brand), model(model)
+    {
+    }
+};
+
 int main()
 {
-    char t = 't';
-    cout << ++t << "\n";
+    Car myCar{"Ford", "Mustang"};
+
+    myCar.sound();
+    print("{} {}\n", myCar.brand, myCar.model);
+
+    return 0;
 }
